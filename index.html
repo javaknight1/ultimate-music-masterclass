@@ -663,6 +663,37 @@ body {
 .song-why { font-size: 13.5px; line-height: 1.6; color: var(--text-muted); }
 @media (max-width: 680px) { .songs-grid { grid-template-columns: 1fr; } }
 
+/* ── RECOMMENDED GEAR (affiliate) ──────────────── */
+.gear-block { margin-top: 32px; }
+.gear-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
+.gear-item {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: var(--card-bg);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.gear-item:hover { border-color: var(--cat-accent); }
+.gear-name { display: block; font-weight: 600; font-size: 15px; }
+.gear-arrow { color: var(--cat-accent); font-size: 12px; }
+.gear-note { display: block; font-size: 13px; color: var(--text-muted); margin-top: 3px; line-height: 1.5; }
+.aff-note { color: var(--text-muted); font-size: 11px; font-style: italic; }
+.app-footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 22px 24px 40px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.6;
+}
+.app-footer a { color: var(--cat-accent); text-decoration: none; }
+@media (max-width: 680px) { .gear-list { grid-template-columns: 1fr; } }
+
 .btn-primary {
   font-family: var(--font-body);
   font-size: 13px;
@@ -909,6 +940,13 @@ body {
         <div class="songs-sub">Apply this lesson's skill to real music — learn it, play along, or record it.</div>
         <div class="songs-grid" id="songs-grid"></div>
       </div>
+      <div class="gear-block" id="gear-block" style="display:none">
+        <div class="songs-header">
+          <span class="songs-label" style="color:var(--cat-accent)">🛒 Recommended Gear</span>
+        </div>
+        <div class="songs-sub">Hand-picked kit for this lesson. <span class="aff-note">Affiliate links — I may earn a small commission, at no extra cost to you.</span></div>
+        <div class="gear-list" id="gear-list"></div>
+      </div>
       <div class="exercise-block">
         <div class="exercise-inner" id="exercise-inner">
           <div class="exercise-header">
@@ -938,6 +976,11 @@ body {
 </div>
 
 </main>
+
+<footer class="app-footer">
+  As an Amazon Associate I earn from qualifying purchases. Some links on this site are affiliate links — using them costs you nothing and helps keep this masterclass free.<br>
+  The Ultimate Music Masterclass
+</footer>
 
 <script>
 // ═══════════════════════════════════════════════════
@@ -1540,6 +1583,10 @@ Cmaj7: C  E  B  G  (D→C, F→E, B stays, G stays)</pre>
 gear: [
   {
     id:"gear-1", title:"The Electric Signal Chain",
+    gear:[
+      {name:"Boss TU-3 Tuner", q:"Boss TU-3 chromatic tuner pedal", note:"The industry-standard tuner — first stop in your signal chain."},
+      {name:"Fender Instrument Cable", q:"Fender instrument cable guitar", note:"Bad cables are the #1 cause of signal-chain noise; start with reliable ones."}
+    ],
     skill:"Diagram your complete signal chain from guitar to amp and explain the function of each stage",
     time:"20 min",
     related:["gear-2","gear-3","recording-1"],
@@ -1571,6 +1618,11 @@ AMP EFFECTS LOOP:
   },
   {
     id:"gear-2", title:"Effects Pedals Deep Dive",
+    gear:[
+      {name:"Boss DD-8 Delay", q:"Boss DD-8 digital delay pedal", note:"Versatile delay for the time-based effects in this lesson."},
+      {name:"Boss RC-5 Loop Station", q:"Boss RC-5 loop station", note:"Build and practice parts with a looper."},
+      {name:"MXR Phase 95", q:"MXR Phase 95 phaser pedal", note:"Classic modulation to hear exactly what a phaser does."}
+    ],
     songs:[
       {title:"Where the Streets Have No Name", artist:"U2", why:"The Edge's dotted-eighth delay is the textbook delay-pedal setting — dial your delay to match the rhythm exactly."},
       {title:"Riders on the Storm", artist:"The Doors", why:"A lush clean tone drenched in reverb; recreate the cavernous space to learn what reverb depth and decay actually do."}
@@ -1607,6 +1659,10 @@ AMP EFFECTS LOOP:
   },
   {
     id:"gear-3", title:"Amplifiers: Tubes, Solid State & Modeling",
+    gear:[
+      {name:"Boss Katana 50 MkII", q:"Boss Katana 50 MkII guitar amp", note:"The go-to modeling practice amp — clean and crunch in one box."},
+      {name:"Fender Blues Junior", q:"Fender Blues Junior tube amp", note:"A classic tube amp for Fender cleans and edge-of-breakup."}
+    ],
     songs:[
       {title:"Brown Sugar", artist:"The Rolling Stones", why:"Classic cranked-Marshall crunch — chase this tone to learn how gain and EQ shape a driven amp."},
       {title:"Sultans of Swing", artist:"Dire Straits", why:"A glassy Fender clean is the other end of the spectrum; dial it in to hear what a clean amp voicing sounds like."}
@@ -1638,6 +1694,10 @@ AMP EFFECTS LOOP:
   },
   {
     id:"gear-4", title:"Acoustic Guitar Gear & Pickups",
+    gear:[
+      {name:"Fishman Neo-D Pickup", q:"Fishman Neo-D acoustic soundhole pickup", note:"Easy magnetic soundhole pickup for amplifying an acoustic."},
+      {name:"LR Baggs Anthem", q:"LR Baggs Anthem acoustic pickup system", note:"Pro-level acoustic pickup/mic system."}
+    ],
     skill:"Choose and correctly position the right pickup type for your acoustic guitar and performance context",
     time:"20 min",
     related:["gear-1","live-2","recording-4"],
@@ -1660,6 +1720,10 @@ AMP EFFECTS LOOP:
   },
   {
     id:"gear-5", title:"Building Your Sound",
+    gear:[
+      {name:"Boss TU-3 Tuner", q:"Boss TU-3 chromatic tuner pedal", note:"A foundational always-on pedal as you assemble your board."},
+      {name:"Pedaltrain Nano Board", q:"Pedaltrain Nano pedalboard", note:"A small board to organize the sound you're building."}
+    ],
     songs:[
       {title:"Little Wing", artist:"Jimi Hendrix", why:"A warm, vocal lead tone to use as a north-star reference while you articulate and shape your own sound."},
       {title:"Reckoner", artist:"Radiohead", why:"A distinctive modern clean/ambient texture — deconstruct it to decide which elements you want in your own tone."}
@@ -1888,6 +1952,11 @@ songwriting: [
 recording: [
   {
     id:"recording-1", title:"Home Studio Setup",
+    gear:[
+      {name:"Focusrite Scarlett 2i2", q:"Focusrite Scarlett 2i2 audio interface", note:"The most popular home-studio audio interface."},
+      {name:"Audio-Technica AT2020", q:"Audio-Technica AT2020 condenser microphone", note:"A reliable, affordable studio condenser to start with."},
+      {name:"Yamaha HS5", q:"Yamaha HS5 studio monitor", note:"Accurate near-field monitors for honest mixing decisions."}
+    ],
     skill:"Set up a functional home recording environment: interface, microphone, monitors, and basic acoustic treatment",
     time:"25 min",
     related:["recording-2","gear-1","recording-3"],
@@ -1974,6 +2043,10 @@ recording: [
   },
   {
     id:"recording-4", title:"Mic Placement for Guitar",
+    gear:[
+      {name:"Shure SM57", q:"Shure SM57 dynamic microphone", note:"The classic amp mic — the reference for every placement experiment."},
+      {name:"Audio-Technica AT2020", q:"Audio-Technica AT2020 condenser microphone", note:"A condenser to compare against the SM57 on acoustic and room."}
+    ],
     songs:[
       {title:"Day Tripper", artist:"The Beatles", why:"A punchy, repeatable single riff — re-record it under three mic positions and compare the tone directly."},
       {title:"Back in Black", artist:"AC/DC", why:"A big open-chord electric riff where you'll clearly hear how mic placement changes the body and bite of the crunch."}
@@ -2007,6 +2080,10 @@ recording: [
   },
   {
     id:"recording-5", title:"Recording Vocals",
+    gear:[
+      {name:"Audio-Technica AT2020", q:"Audio-Technica AT2020 condenser microphone", note:"A clean, affordable vocal condenser."},
+      {name:"Microphone Pop Filter", q:"microphone pop filter", note:"Tames plosives — essential for clean vocal takes."}
+    ],
     songs:[
       {title:"Make You Feel My Love", artist:"Adele", why:"A sparse arrangement exposes every detail of the vocal — ideal for practicing a clean, controlled take."},
       {title:"Skinny Love", artist:"Bon Iver", why:"An intimate, close-miked vocal; recreate it to drill mic technique and a comfortable headphone mix."}
@@ -2774,6 +2851,10 @@ let currentCatId   = null;
 let currentLessonIdx = null;
 let isDark = false;
 
+// Amazon Associates
+const AMAZON_TAG = 'sharkfins-20';
+function amzn(q) { return 'https://www.amazon.com/s?k=' + encodeURIComponent(q) + '&tag=' + AMAZON_TAG; }
+
 // ═══════════════════════════════════════════════════
 //  THEME
 // ═══════════════════════════════════════════════════
@@ -2970,6 +3051,20 @@ function openLesson(catId, idx) {
     songsBlock.style.display = '';
   } else {
     songsBlock.style.display = 'none';
+  }
+
+  // Recommended gear (Amazon affiliate)
+  const gearBlock = document.getElementById('gear-block');
+  const gearList  = document.getElementById('gear-list');
+  if (lesson.gear && lesson.gear.length) {
+    gearList.innerHTML = lesson.gear.map(g => `
+      <a class="gear-item" href="${amzn(g.q || g.name)}" target="_blank" rel="nofollow sponsored noopener">
+        <span class="gear-name">${g.name} <span class="gear-arrow">↗</span></span>
+        <span class="gear-note">${g.note}</span>
+      </a>`).join('');
+    gearBlock.style.display = '';
+  } else {
+    gearBlock.style.display = 'none';
   }
 
   // Exercise
