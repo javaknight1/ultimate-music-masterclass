@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Musician's Library</title>
+<title>The Ultimate Music Masterclass</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 
 /* ═══════════════════════════════════════════════════
-   THE MUSICIAN'S LIBRARY
+   THE ULTIMATE MUSIC MASTERCLASS
    Pacific Drift (light) · Concert Hall (dark)
    Fraunces · Instrument Sans · JetBrains Mono
 ═══════════════════════════════════════════════════ */
@@ -636,6 +636,33 @@ body {
 
 .exercise-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
+.songs-block {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 2px dashed var(--border);
+}
+.songs-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.songs-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--cat-accent);
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+}
+.songs-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 18px; }
+.songs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.song-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  background: var(--card-bg);
+}
+.song-name { font-family: var(--font-display); font-size: 17px; font-weight: 500; color: var(--text); }
+.song-artist { font-size: 13px; color: var(--cat-accent); font-weight: 600; margin-bottom: 8px; }
+.song-why { font-size: 13.5px; line-height: 1.6; color: var(--text-muted); }
+@media (max-width: 680px) { .songs-grid { grid-template-columns: 1fr; } }
+
 .btn-primary {
   font-family: var(--font-body);
   font-size: 13px;
@@ -807,7 +834,7 @@ body {
 
 <!-- ── NAV ───────────────────────────────────────── -->
 <nav class="app-nav">
-  <div class="nav-brand" onclick="goHub()">The Musician's Library</div>
+  <div class="nav-brand" onclick="goHub()">The Ultimate Music Masterclass</div>
   <div class="nav-right">
     <div class="nav-search">
       <span class="search-icon">⌕</span>
@@ -875,6 +902,13 @@ body {
         </div>
       </div>
       <div class="lesson-content" id="lesson-content"></div>
+      <div class="songs-block" id="songs-block" style="display:none">
+        <div class="songs-header">
+          <span class="songs-label">Practice With These Songs</span>
+        </div>
+        <div class="songs-sub">Apply this lesson's skill to real music — learn it, play along, or record it.</div>
+        <div class="songs-grid" id="songs-grid"></div>
+      </div>
       <div class="exercise-block">
         <div class="exercise-inner" id="exercise-inner">
           <div class="exercise-header">
@@ -1080,6 +1114,10 @@ practice: [
   },
   {
     id:"practice-3", title:"Core Technique & Essential Exercises",
+    songs:[
+      {title:"Smoke on the Water", artist:"Deep Purple", why:"The signature riff drills clean alternate picking and palm muting at a forgiving tempo — technique with instant payoff."},
+      {title:"Come As You Are", artist:"Nirvana", why:"The single-note chorus-laden riff trains even picking and legato hammer-ons and pull-offs without rushing."}
+    ],
     skill:"Execute the five foundational guitar techniques with clean tone and proper mechanics",
     time:"30 min",
     related:["practice-2","practice-4","theory-1"],
@@ -1110,6 +1148,10 @@ E|--1-2-3-4--|--1-2-3-4--|</pre>
   },
   {
     id:"practice-4", title:"Advanced Guitar Techniques",
+    songs:[
+      {title:"Eruption", artist:"Van Halen", why:"The definitive two-hand tapping étude — isolate the tapping section slowly before bringing it up to speed."},
+      {title:"Statesboro Blues", artist:"The Allman Brothers Band", why:"Duane Allman's open-tuning slide work gives you melodic, real-world slide technique to imitate."}
+    ],
     skill:"Execute sweep picking, two-hand tapping, and slide guitar with correct technique and intentional use",
     time:"35 min",
     related:["practice-3","theory-3","gear-1"],
@@ -1129,6 +1171,10 @@ E|--1-2-3-4--|--1-2-3-4--|</pre>
   },
   {
     id:"practice-5", title:"Piano for Guitarists",
+    songs:[
+      {title:"Heart and Soul", artist:"Hoagy Carmichael", why:"The classic beginner piano duet stays on white keys and drills C-position triads — perfect first keyboard reading."},
+      {title:"Lean on Me", artist:"Bill Withers", why:"Built almost entirely on stepwise C-major scale runs and triads, so it reinforces exactly what this lesson teaches."}
+    ],
     skill:"Read basic notation on the treble clef, play major scales and triads in C, G, and D on a keyboard",
     time:"25 min",
     related:["theory-1","theory-2","practice-6"],
@@ -1151,6 +1197,10 @@ E|--1-2-3-4--|--1-2-3-4--|</pre>
   },
   {
     id:"practice-6", title:"Vocals & Singing for Guitarists",
+    songs:[
+      {title:"Wonderwall", artist:"Oasis", why:"A steady strum under an independent vocal melody — the standard first song for singing and playing at once."},
+      {title:"Knockin' on Heaven's Door", artist:"Bob Dylan", why:"Four chords at a slow tempo make it easy to keep the strum going while you focus on staying in tune."}
+    ],
     skill:"Sing a melody line in tune while playing guitar, with a basic warmup routine before every session",
     time:"30 min",
     related:["practice-2","live-1","recording-5"],
@@ -1175,6 +1225,10 @@ E|--1-2-3-4--|--1-2-3-4--|</pre>
   },
   {
     id:"practice-7", title:"Playing by Ear",
+    songs:[
+      {title:"Stand by Me", artist:"Ben E. King", why:"A clear, isolated bassline and vocal melody make this an ideal first transcription by ear."},
+      {title:"Let It Be", artist:"The Beatles", why:"The diatonic melody and I–V–vi–IV progression are easy to pick out, building confidence finding notes without tabs."}
+    ],
     skill:"Transcribe a simple song melody by ear in under 30 minutes using a systematic interval-based approach",
     time:"25 min",
     related:["practice-8","theory-1","theory-5"],
@@ -1212,6 +1266,10 @@ E|--1-2-3-4--|--1-2-3-4--|</pre>
   },
   {
     id:"practice-8", title:"Ear Training System",
+    songs:[
+      {title:"Somewhere Over the Rainbow", artist:"Judy Garland", why:"The opening leap is a perfect octave — a permanent mental anchor for recognizing that interval by ear."},
+      {title:"Star Wars (Main Title)", artist:"John Williams", why:"Opens on a bold perfect fifth in clear major tonality — great for hearing interval and chord quality together."}
+    ],
     skill:"Correctly identify any interval and the quality of any chord (major/minor/dominant 7) by ear in real time",
     time:"30 min",
     related:["practice-7","theory-1","theory-5"],
@@ -1249,6 +1307,10 @@ E|--1-2-3-4--|--1-2-3-4--|</pre>
 theory: [
   {
     id:"theory-1", title:"The Interval System",
+    songs:[
+      {title:"Twinkle Twinkle Little Star", artist:"Traditional", why:"Opens with a perfect fifth then a major sixth — sing it to lock in the first intervals you need to name."},
+      {title:"Jaws (Theme)", artist:"John Williams", why:"The menacing two-note motif is a minor second — the smallest interval, and unforgettable once you hear it named."}
+    ],
     skill:"Name and sing any of the 12 intervals from a given root note, and identify them by ear",
     time:"25 min",
     related:["practice-8","theory-2","theory-5"],
@@ -1280,6 +1342,10 @@ theory: [
   },
   {
     id:"theory-2", title:"Major Scale & Chord Construction",
+    songs:[
+      {title:"Do-Re-Mi", artist:"The Sound of Music", why:"It literally walks up the major scale degree by degree — the clearest possible ear-training for WWHWWWH."},
+      {title:"Let It Be", artist:"The Beatles", why:"Its I–V–vi–IV uses only diatonic chords from the C major scale; map each chord back to the scale degree it's built on."}
+    ],
     skill:"Build any major scale from scratch using the WWHWWWH formula, and derive diatonic chords from it",
     time:"25 min",
     related:["theory-1","theory-3","practice-7"],
@@ -1307,6 +1373,10 @@ theory: [
   },
   {
     id:"theory-3", title:"Modes: The Full Picture",
+    songs:[
+      {title:"Scarborough Fair", artist:"Simon & Garfunkel", why:"The quintessential Dorian tune — hear its minor-with-a-major-6th color, then solo Dorian over it."},
+      {title:"Sweet Home Alabama", artist:"Lynyrd Skynyrd", why:"The D–C–G vamp is pure Mixolydian; improvise over it to feel how the flat-7 changes the major sound."}
+    ],
     skill:"Name all 7 modes, their formulas, and their characteristic sound; play Dorian and Mixolydian over a backing track",
     time:"30 min",
     related:["theory-2","theory-4","practice-3"],
@@ -1332,6 +1402,10 @@ theory: [
   },
   {
     id:"theory-4", title:"Borrowed Chords & Modal Interchange",
+    songs:[
+      {title:"Creep", artist:"Radiohead", why:"The famous borrowed iv chord (a minor IV in a major key) is the textbook example of modal interchange."},
+      {title:"In My Life", artist:"The Beatles", why:"Pulls chords from the parallel minor; analyze each borrowed chord and name which mode it came from."}
+    ],
     skill:"Identify and use at least 3 borrowed chords in a chord progression, explaining which parallel mode each comes from",
     time:"25 min",
     related:["theory-3","theory-5","songwriting-2"],
@@ -1356,6 +1430,10 @@ theory: [
   },
   {
     id:"theory-5", title:"Chord Progressions That Work",
+    songs:[
+      {title:"With or Without You", artist:"U2", why:"The same I–V–vi–IV loop drives an entire song in major — proof of how much mileage a strong progression gives."},
+      {title:"Mad World", artist:"Gary Jules", why:"A minor-key progression with a modal flavor; contrast its mood directly against the major example above."}
+    ],
     skill:"Write original chord progressions in 3 different harmonic contexts: major, minor, and modal",
     time:"25 min",
     related:["theory-2","theory-4","songwriting-2"],
@@ -1385,6 +1463,10 @@ theory: [
   },
   {
     id:"theory-6", title:"The Nashville Number System",
+    songs:[
+      {title:"Wagon Wheel", artist:"Old Crow Medicine Show", why:"Its I–V–vi–IV is endlessly transposed in jam circles — chart it in numbers and play it in two different keys."},
+      {title:"Ring of Fire", artist:"Johnny Cash", why:"A simple I–IV–V country chart on the Nashville system's home turf; reading it in numbers is effortless."}
+    ],
     skill:"Read and play from a Nashville Number System chart for a song in at least 2 different keys without preparation",
     time:"20 min",
     related:["theory-2","theory-5","live-1"],
@@ -1419,6 +1501,10 @@ BRIDGE:  | 6m  | 4   | 1   | 5   |</pre>
   },
   {
     id:"theory-7", title:"Advanced Harmony: 7ths, Extensions & Voice Leading",
+    songs:[
+      {title:"Autumn Leaves", artist:"Jazz Standard", why:"Wall-to-wall ii–V–I cadences — the standard vehicle for practicing seventh-chord voice leading."},
+      {title:"Fly Me to the Moon", artist:"Bart Howard", why:"A circle-of-fifths run of sevenths and extensions; voice-lead smoothly through it to hear each resolution."}
+    ],
     skill:"Build and voice dominant 7th, minor 7th, and major 7th chords across the neck; explain the voice leading in a ii–V–I",
     time:"30 min",
     related:["theory-2","theory-5","practice-5"],
@@ -1485,6 +1571,10 @@ AMP EFFECTS LOOP:
   },
   {
     id:"gear-2", title:"Effects Pedals Deep Dive",
+    songs:[
+      {title:"Where the Streets Have No Name", artist:"U2", why:"The Edge's dotted-eighth delay is the textbook delay-pedal setting — dial your delay to match the rhythm exactly."},
+      {title:"Riders on the Storm", artist:"The Doors", why:"A lush clean tone drenched in reverb; recreate the cavernous space to learn what reverb depth and decay actually do."}
+    ],
     skill:"Correctly set up and explain the key parameters of a compressor, delay, and reverb pedal",
     time:"30 min",
     related:["gear-1","gear-3","recording-3"],
@@ -1517,6 +1607,10 @@ AMP EFFECTS LOOP:
   },
   {
     id:"gear-3", title:"Amplifiers: Tubes, Solid State & Modeling",
+    songs:[
+      {title:"Brown Sugar", artist:"The Rolling Stones", why:"Classic cranked-Marshall crunch — chase this tone to learn how gain and EQ shape a driven amp."},
+      {title:"Sultans of Swing", artist:"Dire Straits", why:"A glassy Fender clean is the other end of the spectrum; dial it in to hear what a clean amp voicing sounds like."}
+    ],
     skill:"Identify the tonal character of 5 classic amplifiers and dial in a usable clean and crunch tone on your own amp",
     time:"25 min",
     related:["gear-1","gear-2","recording-4"],
@@ -1566,6 +1660,10 @@ AMP EFFECTS LOOP:
   },
   {
     id:"gear-5", title:"Building Your Sound",
+    songs:[
+      {title:"Little Wing", artist:"Jimi Hendrix", why:"A warm, vocal lead tone to use as a north-star reference while you articulate and shape your own sound."},
+      {title:"Reckoner", artist:"Radiohead", why:"A distinctive modern clean/ambient texture — deconstruct it to decide which elements you want in your own tone."}
+    ],
     skill:"Articulate your ideal tone in words and create a step-by-step plan to achieve it within your current budget",
     time:"25 min",
     related:["gear-1","gear-2","gear-3"],
@@ -1820,6 +1918,10 @@ recording: [
   },
   {
     id:"recording-2", title:"DAW Fundamentals",
+    songs:[
+      {title:"A Horse with No Name", artist:"America", why:"Two chords and a steady strum make it the ideal first clean take to record, comp, and export."},
+      {title:"Three Little Birds", artist:"Bob Marley", why:"Simple, repetitive, and forgiving — perfect for practicing multiple takes and comping them into one."}
+    ],
     skill:"Set up a new session, record a clean take, comp multiple takes into one, and export a stereo file in your DAW",
     time:"30 min",
     related:["recording-1","recording-3","recording-6"],
@@ -1872,6 +1974,10 @@ recording: [
   },
   {
     id:"recording-4", title:"Mic Placement for Guitar",
+    songs:[
+      {title:"Day Tripper", artist:"The Beatles", why:"A punchy, repeatable single riff — re-record it under three mic positions and compare the tone directly."},
+      {title:"Back in Black", artist:"AC/DC", why:"A big open-chord electric riff where you'll clearly hear how mic placement changes the body and bite of the crunch."}
+    ],
     skill:"Record 3 different mic placements for electric guitar and identify the tonal difference between each",
     time:"20 min",
     related:["recording-1","gear-3","recording-5"],
@@ -1901,6 +2007,10 @@ recording: [
   },
   {
     id:"recording-5", title:"Recording Vocals",
+    songs:[
+      {title:"Make You Feel My Love", artist:"Adele", why:"A sparse arrangement exposes every detail of the vocal — ideal for practicing a clean, controlled take."},
+      {title:"Skinny Love", artist:"Bon Iver", why:"An intimate, close-miked vocal; recreate it to drill mic technique and a comfortable headphone mix."}
+    ],
     skill:"Record a clean vocal take with correct mic technique, a comfortable headphone mix, and no audible room issues",
     time:"25 min",
     related:["practice-6","recording-4","recording-6"],
@@ -1926,6 +2036,10 @@ recording: [
   },
   {
     id:"recording-6", title:"Basic Mixing: Levels, Pan & EQ",
+    songs:[
+      {title:"Seven Nation Army", artist:"The White Stripes", why:"A sparse arrangement with few elements — easy to balance levels, set pan positions, and carve EQ without getting overwhelmed."},
+      {title:"Mr. Brightside", artist:"The Killers", why:"Cover it, then use the original as a reference mix: clearly separated guitar, vocal, bass, and drums to match against your own."}
+    ],
     skill:"Create a rough mix of a 4-track session (guitar, vocal, bass, drums) where every element has space and clarity",
     time:"30 min",
     related:["recording-3","recording-7","recording-2"],
@@ -1950,6 +2064,10 @@ recording: [
   },
   {
     id:"recording-7", title:"Vocal Production",
+    songs:[
+      {title:"Bohemian Rhapsody", artist:"Queen", why:"The gold standard of stacked vocal harmonies — study and emulate the layering to learn harmony stacking."},
+      {title:"Africa", artist:"Toto", why:"Lush layered backing vocals in the chorus; recreate the wall-of-sound doubling this lesson teaches."}
+    ],
     skill:"Apply pitch correction, harmony stacking, and the wall-of-sound chorus double technique to a recorded vocal",
     time:"30 min",
     related:["recording-5","recording-6","recording-8"],
@@ -1972,6 +2090,10 @@ recording: [
   },
   {
     id:"recording-8", title:"Mastering Fundamentals",
+    songs:[
+      {title:"Get Lucky", artist:"Daft Punk", why:"A clean, dynamic modern master — use it as a loudness and tonal reference while you master your own mix."},
+      {title:"Uptown Funk", artist:"Mark Ronson", why:"A punchy, commercial master; A/B your LUFS and tonal balance against it to hit streaming standards."}
+    ],
     skill:"Master a finished mix to streaming standards using a 3-stage chain and export at correct LUFS for Spotify and Apple Music",
     time:"25 min",
     related:["recording-7","recording-6","career-1"],
@@ -2002,6 +2124,10 @@ recording: [
   },
   {
     id:"recording-9", title:"Cover Recording Project",
+    songs:[
+      {title:"Valerie", artist:"Amy Winehouse", why:"A manageable arrangement that sounds great as a full-band cover — enough parts to practice a complete production end to end."},
+      {title:"Can't Help Falling in Love", artist:"Elvis Presley", why:"Simple structure with room to arrange; a satisfying, low-risk full cover to produce from setup to export."}
+    ],
     skill:"Produce a complete, listenable cover recording from scratch — setup to export — in your home studio",
     time:"3–4 hr project",
     related:["recording-4","recording-5","recording-8"],
@@ -2034,6 +2160,10 @@ recording: [
 live: [
   {
     id:"live-1", title:"Building Your Solo Live Rig",
+    songs:[
+      {title:"Photograph", artist:"Ed Sheeran", why:"A loop-pedal staple — build it live by layering a guitar bed, percussion, and vocal to test your one-bag rig."},
+      {title:"I'm Yours", artist:"Jason Mraz", why:"Easy chords over a steady groove; loop a rhythm bed and solo on top to rehearse running the looper and tuner mid-song."}
+    ],
     skill:"Design a complete solo live guitar rig with signal chain, looper, and tuner that fits in one bag",
     time:"25 min",
     related:["gear-1","gear-4","live-2"],
@@ -2826,6 +2956,21 @@ function openLesson(catId, idx) {
 
   // Content
   document.getElementById('lesson-content').innerHTML = lesson.content;
+
+  // Songs to practice with
+  const songsBlock = document.getElementById('songs-block');
+  const songsGrid  = document.getElementById('songs-grid');
+  if (lesson.songs && lesson.songs.length) {
+    songsGrid.innerHTML = lesson.songs.map(s => `
+      <div class="song-card">
+        <div class="song-name">${s.title}</div>
+        <div class="song-artist">${s.artist}</div>
+        <div class="song-why">${s.why}</div>
+      </div>`).join('');
+    songsBlock.style.display = '';
+  } else {
+    songsBlock.style.display = 'none';
+  }
 
   // Exercise
   const exLines = lesson.exercise.split('.');

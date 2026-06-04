@@ -1,4 +1,4 @@
-# The Musician's Library
+# The Ultimate Music Masterclass
 
 A self-contained music education app — single HTML file, no server required.
 
@@ -13,6 +13,6 @@ A self-contained music education app — single HTML file, no server required.
 - Career & Business
 - Artist Mindset
 
-**Features:** Light/dark mode · Progress tracking · Global search · Related lessons · Practice exercises
+**Features:** Light/dark mode · Progress tracking · Global search · Related lessons · Practice exercises · Songs to practice with
 
 Hosted on Cloudflare Pages. No dependencies, no build step.
