@@ -886,7 +886,7 @@ body {
 <div class="view active fade-in" id="view-hub">
   <div class="hub-hero">
     <h1>Learn music,<br><em>your way.</em></h1>
-    <p>Nine independent courses. Every lesson ends with a practice exercise. Start anywhere.</p>
+    <p>Ten independent courses. Every lesson ends with a practice exercise. Start anywhere.</p>
   </div>
   <div class="cat-grid" id="cat-grid"></div>
 </div>
@@ -1032,6 +1032,15 @@ const CATS = [
     tag: "Production",
     light: { accent:"#1A5A8A", bg:"#EAF2FA", card:"#D0E5F5", text:"#082840", exBg:"#F0F7FD" },
     dark:  { accent:"#4A9ED8", bg:"#040E18", card:"#081826", text:"#90D0FF", exBg:"#061020" },
+  },
+  {
+    id: "production",
+    icon: "💻",
+    name: "Music Production",
+    desc: "Producing in a DAW from scratch — beat-making, synthesis & sound design, sampling & MIDI, arrangement, and mixing & mastering in the box.",
+    tag: "DAW",
+    light: { accent:"#6A3AB0", bg:"#F2ECFA", card:"#E2D2F2", text:"#2E1060", exBg:"#F7F2FE" },
+    dark:  { accent:"#A878E8", bg:"#0C0618", card:"#160A28", text:"#D8B8FF", exBg:"#0E0820" },
   },
   {
     id: "live",
@@ -2227,6 +2236,225 @@ recording: [
 <div class="callout"><strong>Recommended first covers by skill:</strong> Blackbird (Beatles) — guitar technique focus. Jolene (Parton) — vocal dynamics. Fast Car (Chapman) — guitar + vocal simultaneously. Hallelujah (Cohen) — full production challenge.</div>
 `,
     exercise:"Record a complete cover of any song you choose — guitar and vocals, from setup to exported WAV file. The only rule: finish it before this week ends. Then share it — with one person, in a private SoundCloud link, or in a song feedback community. Get one piece of specific feedback. Apply it to your next recording."
+  },
+],
+
+
+// ─────────────────────────────────────────────────
+//  MUSIC PRODUCTION (DAW) — 6 Lessons
+// ─────────────────────────────────────────────────
+production: [
+  {
+    id:"production-1", title:"The DAW & Your Production Workflow",
+    gear:[
+      {name:"Akai MPK Mini MK3", q:"Akai MPK Mini MK3 MIDI keyboard", note:"A compact MIDI keyboard + pads — the fastest way to play parts and finger-drum beats."},
+      {name:"Audio-Technica ATH-M50x", q:"Audio-Technica ATH-M50x headphones", note:"Reliable closed-back headphones for producing when monitors aren't an option."}
+    ],
+    skill:"Set up a DAW project end to end — tempo, key, audio and MIDI tracks, and the in-the-box signal flow — and move fluently between its core windows",
+    time:"25 min",
+    related:["recording-1","recording-2","production-2"],
+    content:`
+<h3>The DAW Is Your Studio</h3>
+<p>A Digital Audio Workstation is recording console, tape machine, instrument rack, mixing desk, and effects collection in one program. Almost all modern production happens "in the box." Your first job is fluency: knowing where things live and how signal flows, so the tool disappears and the music comes out.</p>
+<h3>Choosing a DAW</h3>
+<table>
+<thead><tr><th>DAW</th><th>Strengths</th><th>Best for</th></tr></thead>
+<tbody>
+<tr><td>Ableton Live</td><td>Session view, fast loop-based workflow, performance</td><td>Electronic, beatmaking, playing live</td></tr>
+<tr><td>FL Studio</td><td>Step sequencer, pattern workflow, lifetime free updates</td><td>Hip-hop, EDM, beginners</td></tr>
+<tr><td>Logic Pro</td><td>Huge stock instrument/effect library (Mac only)</td><td>Songwriting, band production</td></tr>
+<tr><td>Reaper</td><td>Cheap, light, endlessly customizable</td><td>Editing, tinkerers, any genre</td></tr>
+</tbody></table>
+<div class="callout"><strong>The best DAW is the one you stop thinking about.</strong> They all make hit records. Pick one, learn its shortcuts, and don't distro-hop — fluency beats features.</div>
+<h3>Signal Flow In the Box</h3>
+<pre>CLIP/INSTRUMENT → TRACK (insert FX: EQ, comp...)
+   → SENDS (reverb/delay return tracks)
+   → GROUP/BUS (drum bus, etc.)
+   → MASTER (master chain) → EXPORT</pre>
+<p>Audio flows top-to-bottom through a track's insert chain, optionally splits off to <em>send</em> effects, then sums into buses and finally the master. Internalize this and mixing later makes sense.</p>
+<h3>Start a Project Right</h3>
+<ul>
+<li><strong>Set the tempo (BPM)</strong> and time signature before recording anything.</li>
+<li><strong>Pick a key</strong> (or note it) so parts stay in tune with each other.</li>
+<li><strong>Two track types:</strong> audio (recorded sound) and MIDI/instrument (notes that drive a virtual instrument).</li>
+<li><strong>Save a template</strong> with your go-to tracks and FX so you start making music, not configuring.</li>
+</ul>
+`,
+    exercise:"Open your DAW and create a fresh project at 120 BPM. Add one audio track and one MIDI/instrument track with any synth, and put four bars on each. Route a reverb as a send and feed both tracks to it. Save the result as your starter template.",
+    songs:[
+      {title:"Get Lucky", artist:"Daft Punk", why:"A pristine, clearly-arranged production — mentally open it track by track and identify each element's role."},
+      {title:"Redbone", artist:"Childish Gambino", why:"Spacious, dynamic production that rewards close listening for groove and arrangement."}
+    ]
+  },
+  {
+    id:"production-2", title:"Beat-Making & Drum Programming",
+    skill:"Program a convincing drum groove with intentional velocities, swing, and layering using a step sequencer or piano roll",
+    time:"30 min",
+    related:["production-1","production-4","practice-2"],
+    content:`
+<h3>The Grid and the Groove</h3>
+<p>Drums live on a grid divided into beats and subdivisions (1/4, 1/8, 1/16). The classic backbone: <strong>kick</strong> on beats 1 and 3, <strong>snare/clap</strong> on 2 and 4 (the backbeat), and <strong>hi-hats</strong> filling the 1/8 or 1/16 grid.</p>
+<pre>      1   e   &   a   2   e   &   a
+KICK  X               .       X
+SNR           .           X
+HAT   x   x   x   x   x   x   x   x</pre>
+<h3>What Makes It Feel Human</h3>
+<table>
+<thead><tr><th>Tool</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td>Velocity</td><td>How hard each hit plays — flat velocities sound robotic; accent the backbeat, ghost the in-between hats</td></tr>
+<tr><td>Swing / shuffle</td><td>Delays every other subdivision slightly for a laid-back feel (vital in hip-hop, house, jazz)</td></tr>
+<tr><td>Micro-timing</td><td>Nudge hits a hair early/late off the grid for push or drag</td></tr>
+<tr><td>Layering</td><td>Stack two kicks (sub + click) or snare + clap into one bigger sound</td></tr>
+</tbody></table>
+<div class="callout"><strong>Program the variation in.</strong> Copy a 1-bar loop to 4 bars, then change one thing per bar — an extra kick, a dropped hat, a fill at the end. Static loops bore the ear fast.</div>
+<h3>Where the Sounds Come From</h3>
+<p>Trigger one-shot samples (kick.wav, snare.wav…) from a <strong>drum rack/sampler</strong> via MIDI, or use a drum synth. Tune your kick toward the track's key and high-pass everything that isn't kick/sub to keep the low end clean.</p>
+`,
+    exercise:"Program a 1-bar beat (kick, snare, hats), then expand it to 4 bars with at least three variations and a fill in bar 4. Add swing and vary your hi-hat velocities. Loop it for a minute — does it still feel good?",
+    songs:[
+      {title:"Hung Up", artist:"Madonna", why:"Four-on-the-floor dance programming — map the kick/clap/hat pattern onto your grid."},
+      {title:"Nuthin' but a 'G' Thang", artist:"Dr. Dre", why:"Laid-back swung hip-hop drums — a perfect groove and velocity study."}
+    ]
+  },
+  {
+    id:"production-3", title:"Synthesis & Sound Design",
+    gear:[
+      {name:"Arturia MiniLab 3", q:"Arturia MiniLab 3 MIDI controller", note:"Hardware knobs mapped to synth parameters make sound design tactile instead of mouse-driven."}
+    ],
+    skill:"Design an original synth patch from a raw waveform using oscillators, filters, envelopes, and LFOs",
+    time:"30 min",
+    related:["production-2","production-4","gear-2"],
+    content:`
+<h3>The Synth Signal Path</h3>
+<p>Almost every synth follows the same path — learn it once and they all make sense:</p>
+<pre>OSCILLATOR(S)  →  FILTER  →  AMPLIFIER
+   (raw tone)     (carve)     (volume)
+       ▲             ▲            ▲
+   ENVELOPES / LFOs modulate any stage over time</pre>
+<table>
+<thead><tr><th>Stage</th><th>What it controls</th></tr></thead>
+<tbody>
+<tr><td>Oscillator</td><td>The raw waveform: <em>saw</em> (bright, buzzy), <em>square</em> (hollow), <em>sine</em> (pure/sub), <em>noise</em> (percussion/air)</td></tr>
+<tr><td>Filter</td><td>Removes frequencies — a low-pass filter's <strong>cutoff</strong> and <strong>resonance</strong> are the most-used knobs in electronic music</td></tr>
+<tr><td>ADSR envelope</td><td>Attack, Decay, Sustain, Release — the shape of a sound over time (plucky vs pad)</td></tr>
+<tr><td>LFO</td><td>A slow oscillator modulating pitch (vibrato), filter (wobble), or volume (tremolo)</td></tr>
+</tbody></table>
+<div class="callout"><strong>Subtractive synthesis = start rich, carve down.</strong> Begin with a bright saw, lower the filter cutoff until it sits right, then shape the envelope. That one recipe makes basses, leads, and pads.</div>
+<h3>Two Patches to Internalize</h3>
+<ul>
+<li><strong>Pluck/lead:</strong> saw osc → fast attack, short decay, low sustain → a touch of filter envelope for "pew."</li>
+<li><strong>Pad:</strong> two detuned saws → slow attack and release → a gentle LFO on the filter for movement.</li>
+</ul>
+<p>Reverse-engineering presets — opening a sound you like to see how it's built — teaches faster than any tutorial.</p>
+`,
+    exercise:"In any synth (your DAW's stock one is fine), start from a single saw oscillator and build a pluck lead from scratch: shape the amp envelope, set a low-pass filter, add a short filter envelope. Save it, then design a contrasting pad from the same starting waveform.",
+    songs:[
+      {title:"Strobe", artist:"deadmau5", why:"A clinic in evolving synth pads and filter movement — study how the patches breathe over time."},
+      {title:"Midnight City", artist:"M83", why:"Iconic synth leads and textures to reverse-engineer."}
+    ]
+  },
+  {
+    id:"production-4", title:"Sampling, MIDI & Melody",
+    skill:"Build chord progressions and melodies in the piano roll, and chop a sample into a new musical part",
+    time:"30 min",
+    related:["production-3","theory-2","theory-5"],
+    content:`
+<h3>MIDI Is Not Sound</h3>
+<p>MIDI is performance data — which note, how hard, how long — that drives a virtual instrument. Because it's just data you can fix timing (<strong>quantize</strong>), transpose a whole part to a new key, or swap the instrument after the fact. The <strong>piano roll</strong> is where you draw and edit it.</p>
+<h3>Chords and Melody, Fast</h3>
+<ul>
+<li>Build a progression from your key's diatonic chords (see Music Theory) — e.g. the I–V–vi–IV that powers half of pop.</li>
+<li>Hold chords on one track; write a melody on another using mostly chord tones, with passing notes for motion.</li>
+<li>Use <strong>velocity</strong> and slight timing humanization so MIDI parts don't sound stiff.</li>
+</ul>
+<h3>Sampling: Music From Audio</h3>
+<table>
+<thead><tr><th>Technique</th><th>Use</th></tr></thead>
+<tbody>
+<tr><td>Chopping</td><td>Slice a loop/vocal into hits and replay them in a new order on a sampler</td></tr>
+<tr><td>Time-stretch</td><td>Match a sample's tempo to your project without changing its pitch</td></tr>
+<tr><td>Repitch</td><td>Transpose a sample to your key (classic in hip-hop/house)</td></tr>
+<tr><td>One-shots</td><td>Single sounds (a stab, a vocal "hey") mapped across the keys</td></tr>
+</tbody></table>
+<div class="callout"><strong>Clear your samples.</strong> Using someone's recording in a release needs permission/clearance or a royalty-free source. For learning, anything goes; for releasing, use packs you're licensed to use.</div>
+`,
+    exercise:"Write a 4-chord progression in the piano roll in a key of your choice, then compose an 8-bar melody over it using mostly chord tones. Separately, take any loop, chop it into 4–8 slices, and rearrange the slices into a new pattern.",
+    songs:[
+      {title:"Stronger", artist:"Kanye West", why:"A famous repitched sample (Daft Punk) flipped into a new song — study the chop-and-reuse approach."},
+      {title:"Levels", artist:"Avicii", why:"A sampled vocal hook over a simple, strong progression — melody-and-sample synergy."}
+    ]
+  },
+  {
+    id:"production-5", title:"Arrangement & Building a Track",
+    skill:"Turn an 8-bar loop into a full arranged track — intro, build, drop/chorus, breakdown, outro — using energy and automation",
+    time:"30 min",
+    related:["production-2","songwriting-1","production-6"],
+    content:`
+<h3>From Loop to Song</h3>
+<p>Most producers get stuck with a great 8-bar loop and no song. Arrangement is the cure: deciding what plays <em>when</em> so energy rises and falls and the listener stays hooked.</p>
+<h3>A Universal Map</h3>
+<pre>INTRO → BUILD → DROP/CHORUS → BREAKDOWN → BUILD → DROP → OUTRO
+ low     rising    full          strip back  rising  full   fade</pre>
+<table>
+<thead><tr><th>Section</th><th>Job</th></tr></thead>
+<tbody>
+<tr><td>Intro</td><td>Set tempo and vibe, often DJ-friendly drums only</td></tr>
+<tr><td>Build / riser</td><td>Add tension: filter sweeps, snare rolls, white-noise risers, mute the bass</td></tr>
+<tr><td>Drop / chorus</td><td>The payoff — everything in, hook front and center</td></tr>
+<tr><td>Breakdown</td><td>Strip to a few elements so the next drop hits harder</td></tr>
+</tbody></table>
+<h3>The Tools of Energy</h3>
+<ul>
+<li><strong>Add/remove layers</strong> — the simplest energy control is what's playing.</li>
+<li><strong>Automation</strong> — draw filter cutoff, volume, and reverb changes over time for movement and transitions.</li>
+<li><strong>Transitions</strong> — risers, impacts, downsweeps, and a beat of silence right before a drop.</li>
+</ul>
+<div class="callout"><strong>Arrange in sections, not bars.</strong> Lay out empty named sections (Intro/Verse/Chorus…) first, then fill them. It breaks the "endless 8-bar loop" trap.</div>
+`,
+    exercise:"Take a loop you've made and arrange it into a full ~2–3 minute track with at least intro, build, drop/chorus, breakdown, and outro. Use automation on a filter or volume for one transition, and add a riser into a drop.",
+    songs:[
+      {title:"One More Time", artist:"Daft Punk", why:"Textbook build/drop/breakdown energy management — chart its sections by ear."},
+      {title:"Clarity", artist:"Zedd", why:"Clean pop-EDM arrangement with strong builds and a big chorus/drop to model."}
+    ]
+  },
+  {
+    id:"production-6", title:"Mixing & Mastering In the Box",
+    gear:[
+      {name:"Yamaha HS5", q:"Yamaha HS5 studio monitor", note:"Accurate near-field monitors so your mixing decisions translate to other speakers."}
+    ],
+    skill:"Turn a finished arrangement into a balanced, release-ready master using gain staging, EQ, compression, sends, a bus chain, and LUFS metering",
+    time:"35 min",
+    related:["recording-6","recording-8","production-5"],
+    content:`
+<h3>Mixing: Make Everything Fit</h3>
+<p>A mix is about space — every element clearly audible without fighting. The order of operations that rescues most beginner mixes:</p>
+<ol>
+<li><strong>Gain staging</strong> — get every track to a sane level (peaks around -12 to -6 dBFS) before any plugins.</li>
+<li><strong>Balance</strong> — set rough fader levels with everything playing. Most mix problems are level problems.</li>
+<li><strong>Panning</strong> — spread elements across the stereo field; keep kick, bass, and lead vocal centered.</li>
+<li><strong>EQ</strong> — carve, don't just boost. High-pass non-bass tracks; cut clashes before boosting.</li>
+<li><strong>Compression</strong> — control dynamics so parts sit consistently (vocals, bass, drums especially).</li>
+<li><strong>Reverb/delay on sends</strong> — share a couple of reverbs via return tracks for a cohesive space.</li>
+</ol>
+<div class="callout"><strong>Mix at low volume and in mono.</strong> If the balance works quiet and in mono, it works everywhere. Loud always sounds "better" and lies to you.</div>
+<h3>The Master Chain</h3>
+<table>
+<thead><tr><th>Stage</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td>Bus EQ</td><td>Gentle broad tone shaping of the whole mix</td></tr>
+<tr><td>Bus compression</td><td>1–2 dB of glue so the mix breathes as one</td></tr>
+<tr><td>Limiter</td><td>Raises overall loudness and catches peaks</td></tr>
+<tr><td>LUFS metering</td><td>Target roughly -14 LUFS integrated for streaming</td></tr>
+</tbody></table>
+<h3>Export</h3>
+<p>Bounce a 24-bit WAV at your session sample rate for masters/distribution and an MP3 for sharing. Leave headroom (true peak ≈ -1 dBTP) so encoders don't clip.</p>
+`,
+    exercise:"Mix one of your tracks: gain stage every channel, balance faders at low volume, high-pass non-bass tracks, and add EQ/compression where needed plus one shared reverb send. Add a master chain (EQ → glue comp → limiter), check it lands near -14 LUFS, and export a 24-bit WAV.",
+    songs:[
+      {title:"Get Lucky", artist:"Daft Punk", why:"A reference for clean, punchy, balanced commercial mixing — A/B your master against it."},
+      {title:"Uptown Funk", artist:"Mark Ronson", why:"Loud and tight with every element present — a mixing/mastering loudness and clarity target."}
+    ]
   },
 ],
 
